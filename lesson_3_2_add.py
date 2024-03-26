@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import unittest
-import time
 
 class TestNew(unittest.TestCase):
     def test_1(self):
@@ -21,11 +20,8 @@ class TestNew(unittest.TestCase):
             actual_result = browser.find_element(By.TAG_NAME, 'h1').text
             expected_result = 'Congratulations! You have successfully registered!'
             print(type(actual_result))
-            self.assertEquals(actual_result, expected_result, "Регестрация не пройдена")
+            self.assertEqual(actual_result, expected_result, "Регестрация не пройдена")
         finally:
-            # ожидание чтобы визуально оценить результаты прохождения скрипта
-            time.sleep(10)
-            # закрываем браузер после всех манипуляций
             browser.quit()
 
     def test_2(self):
@@ -44,11 +40,8 @@ class TestNew(unittest.TestCase):
             button.click()
             actual_result = browser.find_element(By.TAG_NAME, 'h1').text
             expected_result = 'Congratulations! You have successfully registered!'
-            self.assertEquals(actual_result, expected_result, "Не верный резултат")
+            self.assertEqual(actual_result, expected_result, "Не верный резултат")
         finally:
-            # ожидание чтобы визуально оценить результаты прохождения скрипта
-            time.sleep(10)
-            # закрываем браузер после всех манипуляций
             browser.quit()
 
 if __name__ == "__main__":
